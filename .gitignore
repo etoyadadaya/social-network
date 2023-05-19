@@ -1,3 +1,5 @@
 /node_modules
-/build
+build
 .idea/
+
+# git rm -r --cached .idea
