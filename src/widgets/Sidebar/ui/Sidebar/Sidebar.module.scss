@@ -11,6 +11,16 @@
     width: var(--sidebar-width-collapsed);
 }
 
+.burgerCollapsed {
+    rotate: 0deg;
+    transition: rotate 0.3s;
+}
+
+.burgerNotCollapsed {
+    rotate: 90deg;
+    transition: rotate 0.3s;
+}
+
 .switchers {
     position: absolute;
     bottom: 20px;
@@ -19,6 +29,28 @@
     width: 100%;
 }
 
+.burgerSwitcher {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .lang {
     margin-left: 20px;
+}
+
+.ArrowIconDark {
+    width: 30px;
+    height: 31px;
+
+    fill: white;
+}
+
+.ArrowIconLight {
+    width: 30px;
+    height: 31px;
+
+    fill: black;
 }
