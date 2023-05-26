@@ -1,28 +1,27 @@
-import React, {useState} from "react";
-import cls from "./Sidebar.module.scss";
-import {classNames} from "shared/lib/classNames/classNames";
-import {ThemeSwitcher} from "widgets/ThemeSwitcher";
-import {LangSwitcher} from "widgets/LangSwitcher";
-import {Button, ThemeButton} from "shared/ui/Button/Button";
+import React, { useState } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import ArrowIcon from '../../../../shared/assets/icons/arrow.svg';
-import {Theme, useTheme} from "app/providers/ThemeProvider";
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({className}: SidebarProps) => {
-
+export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
 
     const onToggle = () => {
-        setCollapsed(prev => !prev);
-    }
+        setCollapsed((prev) => !prev);
+    };
 
     return (
         <div
-            className={classNames(cls.sidebar, {[cls.collapsed]: collapsed}, [className])}
+            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <div className={cls.burgerSwitcher}>
                 <Button
@@ -31,11 +30,8 @@ export const Sidebar = ({className}: SidebarProps) => {
                     className={collapsed ? cls.burgerCollapsed : cls.burgerNotCollapsed}
                 >
                     { theme === Theme.DARK
-                        ?
-                        <ArrowIcon className={cls.ArrowIconDark} />
-                        :
-                        <ArrowIcon className={cls.ArrowIconLight} />
-                    }
+                        ? <ArrowIcon className={cls.ArrowIconDark} />
+                        : <ArrowIcon className={cls.ArrowIconLight} />}
                 </Button>
             </div>
             <div className={cls.switchers}>
