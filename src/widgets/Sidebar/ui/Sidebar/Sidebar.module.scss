@@ -2,7 +2,6 @@
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-width);
     background: var(--inverted-bg-color);
-
     position: relative;
     transition: width 0.3s;
 }
@@ -44,13 +43,11 @@
 .ArrowIconDark {
     width: 30px;
     height: 31px;
-
     fill: white;
 }
 
 .ArrowIconLight {
     width: 30px;
     height: 31px;
-
     fill: black;
 }
