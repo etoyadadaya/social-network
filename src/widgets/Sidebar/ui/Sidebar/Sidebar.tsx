@@ -12,7 +12,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
     const { theme } = useTheme();
 
     const onToggle = () => {
@@ -21,13 +21,19 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
     return (
         <div
-            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(
+                cls.sidebar,
+                { [cls.collapsed]: collapsed },
+                [className],
+            )}
         >
             <div className={cls.burgerSwitcher}>
                 <Button
                     theme={ThemeButton.CLEAR}
                     onClick={onToggle}
-                    className={collapsed ? cls.burgerCollapsed : cls.burgerNotCollapsed}
+                    className={collapsed
+                        ? cls.burgerCollapsed
+                        : cls.burgerNotCollapsed}
                 >
                     { theme === Theme.DARK
                         ? <ArrowIcon className={cls.ArrowIconDark} />

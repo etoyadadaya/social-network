@@ -2,5 +2,10 @@
   "Язык": "English",
   "Тестовый перевод": "Test translation",
   "Главная страница": "Main page",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Обновить страницу": "Refresh the page",
+  "Произошла ошибка": "An error has occurred",
+  "Главная": "Main page",
+  "О сайте": "About",
+  "Выбросить ошибку": "Throw Error"
 }
