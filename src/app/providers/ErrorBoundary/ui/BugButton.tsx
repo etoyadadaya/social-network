@@ -1,15 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import cls from './BugButton.module.scss';
-
-interface BugButtonProps {
-    className?: string;
-}
 
 // Component for testing ErrorBoundary
-export const BugButton = ({ className }: BugButtonProps) => {
+export const BugButton = () => {
     const [error, setError] = useState(false);
     const { t } = useTranslation();
 
@@ -26,7 +20,6 @@ export const BugButton = ({ className }: BugButtonProps) => {
     return (
         <Button
             onClick={onThrow}
-            className={classNames(cls.BugButton, {}, [className])}
         >
             {t('Выбросить ошибку')}
         </Button>
