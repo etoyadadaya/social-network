@@ -1,23 +1,37 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 jobs:
   pipeline:
     runs-on: macos-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
-
+        node-version:
+          - 17.x
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install modules
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: install modules if cache invalid
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install -f
       - name: build production project
         run: npm run build:prod
