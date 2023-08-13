@@ -4,6 +4,8 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { useTranslation } from 'react-i18next';
 import ArrowIcon from '../../../../shared/assets/icons/arrow.svg';
 import cls from './Sidebar.module.scss';
 
@@ -14,6 +16,7 @@ interface SidebarProps {
 export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(true);
     const { theme } = useTheme();
+    const { t } = useTranslation();
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
@@ -49,3 +52,18 @@ export const Sidebar = ({ className }: SidebarProps) => {
         </div>
     );
 };
+
+// <AppLink
+//     theme={AppLinkTheme.SECONDARY}
+//     to="/"
+//     className={cls.mainLink}
+// >
+//     {t('Главная')}
+// </AppLink>
+// <AppLink
+//     theme={AppLinkTheme.SECONDARY}
+//     to="/about"
+//     className={cls.aboutLink}
+// >
+//     {t('О сайте')}
+// </AppLink>
