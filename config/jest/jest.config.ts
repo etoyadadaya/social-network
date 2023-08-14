@@ -1,4 +1,7 @@
 export default {
+    globals: {
+        __IS_DEV__: true,
+    },
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
@@ -31,5 +34,6 @@ export default {
         '@shared/(.*)': '<rootDir>/src/shared/$1',
         '@pages/(.*)': '<rootDir>/src/pages/$1',
         '@widgets/(.*)': '<rootDir>/src/widgets/$1',
+        '@entities/(.*)': '<rootDir>/src/entities/$1',
     },
 };
