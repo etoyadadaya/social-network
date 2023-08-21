@@ -5,5 +5,14 @@
       "password": "$2a$10$8xanyJTSJdKuHeJRwoI8hOWD24TgJSzJ3uIlB6KGHSfHq62rHKJR.",
       "id": 1
     }
-  ]
+  ],
+  "profile": {
+    "first": "Ivan",
+    "lastname": "Denisenko",
+    "age": 20,
+    "country": "Russia",
+    "city": "Novosibirsk",
+    "username": "admin",
+    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+  }
 }

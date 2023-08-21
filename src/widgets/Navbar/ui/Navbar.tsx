@@ -1,22 +1,32 @@
-import React, { useCallback, useState } from 'react';
+import React, {
+    memo, useCallback, useMemo, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { NavbarItemsList } from 'widgets/Navbar/model/items';
+import { NavbarItem } from 'widgets/Navbar/NavbarItem/NavbarItem';
 import cls from './Navbar.module.scss';
 
 interface NavBarProps {
     className?: string;
 }
 
-export const Navbar = ({ className }: NavBarProps) => {
+export const Navbar = memo(({ className }: NavBarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+
+    const itemsList = useMemo(() => NavbarItemsList.map((item) => (
+        <NavbarItem
+            item={item}
+            key={item.path}
+        />
+    )), []);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -46,21 +56,10 @@ export const Navbar = ({ className }: NavBarProps) => {
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
+            <div className={cls.items}>
+                {itemsList}
+            </div>
             <div className={cls.links}>
-                <AppLink
-                    theme={AppLinkTheme.SECONDARY}
-                    to="/"
-                    className={cls.mainLink}
-                >
-                    {t('Главная')}
-                </AppLink>
-                <AppLink
-                    theme={AppLinkTheme.SECONDARY}
-                    to="/about"
-                    className={cls.aboutLink}
-                >
-                    {t('О сайте')}
-                </AppLink>
                 <Button
                     onClick={onShowModal}
                     theme={ThemeButton.CLEAR}
@@ -77,4 +76,4 @@ export const Navbar = ({ className }: NavBarProps) => {
             </div>
         </div>
     );
-};
+});
