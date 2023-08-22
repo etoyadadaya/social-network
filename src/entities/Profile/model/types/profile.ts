@@ -1,15 +1,13 @@
 import { Country } from 'shared/const/common';
 
 export interface Profile {
-    'profile': {
         first: string,
         lastname: string,
-        age: number,
+        age: string | undefined,
         country: Country,
         city: string,
         username: string,
         avatar: string,
-    }
 }
 
 export interface ProfileSchema {

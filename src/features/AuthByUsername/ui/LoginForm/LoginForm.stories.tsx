@@ -19,6 +19,7 @@ export const Light: Story = {
         (Story) => (
             StoreDecorator({
                 loginForm: {
+                    isLoading: false,
                     email: '123',
                     password: '123',
                 },
@@ -33,6 +34,7 @@ export const WithErrorLight: Story = {
         (Story) => (
             StoreDecorator({
                 loginForm: {
+                    isLoading: false,
                     email: '123',
                     password: '123',
                     error: 'error!',
@@ -66,6 +68,7 @@ export const Dark: Story = {
         (Story) => (
             StoreDecorator({
                 loginForm: {
+                    isLoading: false,
                     email: '123',
                     password: '123',
                 },
@@ -83,6 +86,7 @@ export const WithErrorDark: Story = {
         (Story) => (
             StoreDecorator({
                 loginForm: {
+                    isLoading: false,
                     email: '123',
                     password: '123',
                     error: 'error!',

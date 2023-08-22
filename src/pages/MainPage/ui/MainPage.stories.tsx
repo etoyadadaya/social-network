@@ -11,6 +11,7 @@ const meta: Meta<typeof MainPage> = {
         (Story) => (
             StoreDecorator({
                 loginForm: {
+                    isLoading: false,
                     email: '123',
                     password: '123',
                 },
