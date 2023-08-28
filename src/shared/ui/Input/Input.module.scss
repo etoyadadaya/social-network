@@ -1,3 +1,10 @@
+.input {
+    &[type="number"]::-webkit-outer-spin-button,
+    &[type="number"]::-webkit-inner-spin-button {
+        appearance: none;
+    }
+}
+
 .form__group {
     position: relative;
     padding: 15px 0 0;
@@ -54,4 +61,8 @@
     border-width: 3px;
     border-image: linear-gradient(to right, var(--primary-color), var(--primary-color));
     border-image-slice: 1;
+}
+
+.readonly {
+    opacity: 0.7;
 }

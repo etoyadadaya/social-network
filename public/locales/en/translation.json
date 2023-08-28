@@ -9,5 +9,12 @@
   "О сайте": "About",
   "Выбросить ошибку": "Throw Error",
   "Плюс": "Plus",
-  "Минус": "Minus"
+  "Минус": "Minus",
+  "Decrement": "Decrement",
+  "Increment": "Increment",
+  "Войти": "Login",
+  "Вы ввели неверный логин или пароль": "You have entered an incorrect username or password",
+  "Выйти": "Logout",
+  "Страница профиля": "Profile page",
+  "Форма авторизации": "Authorization form"
 }
